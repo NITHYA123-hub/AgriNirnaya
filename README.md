@@ -1,4 +1,4 @@
-# 🌱 AgriNirnay (ಅಗ್ರಿನಿರ್ಣಯ)
+# 🌱 AgriNirnay
 ### *Data-Driven Smart Crop Planning, Applied AI Decision Support & Financial Intelligence for Karnataka Farmers*
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://agrinirnaya.streamlit.app/)
@@ -7,14 +7,14 @@
 [![SFIC 2026](https://img.shields.io/badge/Initiative-SFIC%202026-darkgreen.svg)]()
 [![Institution](https://img.shields.io/badge/Institution-S--VYASA%20University-orange.svg)]()
 
-> **🚀 Live Web Deployment:** [https://agrinirnaya.streamlit.app/](https://agrinirnaya.streamlit.app/)  
+> **🚀 Live Web Deployment:** https://agrinirnaya.streamlit.app/ 
 > **📄 Comprehensive Project Report:** [PROJECT_REPORT.md](PROJECT_REPORT.md)
 
 ---
 
 ## 📌 Overview
 
-**AgriNirnay** (ಅಗ್ರಿನಿರ್ಣಯ) is an intelligent, localized agricultural decision-support platform engineered specifically for farmers, agricultural extension officers, and agribusiness planners across all **31 districts of Karnataka**. 
+**AgriNirnay** is an intelligent, localized agricultural decision-support platform engineered specifically for farmers, agricultural extension officers, and agribusiness planners across all **31 districts of Karnataka**. 
 
 Farming decisions are historically vulnerable to fragmented information—unreliable weather forecasts, fluctuating APMC mandi auction prices, escalating cultivation costs, and uncertainty about which crop genuinely suits local soil nutrients. **AgriNirnay** unifies soil chemistry, agro-climatic district parameters, real-time satellite weather, APMC mandi economics, and financial modeling into a single, high-contrast, beautiful interface.
 
