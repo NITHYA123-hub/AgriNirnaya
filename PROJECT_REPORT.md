@@ -1,8 +1,8 @@
 # AgriNirnay — Smart Agricultural Decision-Support Platform for Karnataka
 
-Oct 20, 2026 · @Someone
+Oct 20, 2026
 
-AgriNirnay (ಅಗ್ರಿನಿರ್ಣಯ, "agricultural decision") is a Streamlit-based decision-support platform that recommends a crop and models its finances for farmers in Karnataka. It is a student project submitted to SFIC 2026 under the theme *Samriddh Annadata, Samriddh Bharat*.
+AgriNirnay is a Streamlit-based decision-support platform that recommends a crop and models its finances for farmers in Karnataka. It is a student project submitted to SFIC 2026 under the theme *Samriddh Annadata, Samriddh Bharat*.
 
 ## Project at a Glance
 
