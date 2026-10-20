@@ -7,8 +7,8 @@
 [![SFIC 2026](https://img.shields.io/badge/Initiative-SFIC%202026-darkgreen.svg)]()
 [![Institution](https://img.shields.io/badge/Institution-S--VYASA%20University-orange.svg)]()
 
-> **🚀 Live Web Deployment:** https://agrinirnaya.streamlit.app/ 
-> **📄 Comprehensive Project Report:** **[PROJECT_REPORT.md](project_Report.txt)**
+> **🚀 Live Web Deployment:** https://agrinirnaya.streamlit.app/             
+> **📄 Comprehensive Project Report:** **[PROJECT_REPORT.md](project_Report.md)**
 
 ---
 
