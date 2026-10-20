@@ -1,224 +1,315 @@
-
 import streamlit as st
+
+st.set_page_config(
+    page_title="AgriNirnay | Smart Crop Planning",
+    page_icon="🌱",
+    layout="wide"
+)
 
 st.markdown("""
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
 #MainMenu, footer, [data-testid="stHeader"] {
     visibility: hidden;
 }
+
 .stApp {
-    background: #faf9f3;
-    color: #173d2b;
+    background: #FAF9F3;
+    color: #173D2B;
 }
+
 .block-container {
-    max-width: 1400px;
-    padding: 1rem 2.5rem 1.5rem;
+    max-width: 1350px;
+    padding: 1.2rem 2.5rem 2rem;
 }
+
+/* Header & Brand */
 .brand {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 4px 0 18px;
-    border-bottom: 1px solid #e5e8dc;
-    margin-bottom: 22px;
+    gap: 14px;
+    padding: 6px 0 20px;
+    border-bottom: 1px solid #E2E8D8;
+    margin-bottom: 24px;
 }
-.brand-icon { font-size: 38px; }
+
+.brand-icon {
+    font-size: 40px;
+    filter: drop-shadow(0 4px 10px rgba(35, 131, 75, 0.25));
+}
+
 .brand-name {
-    font-size: 29px;
-    font-weight: 800;
-    color: #17452e;
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #104026;
     letter-spacing: -1px;
+    line-height: 1;
 }
+
 .brand-tag {
-    color: #71816e;
-    font-size: 10px;
+    color: #627A68;
+    font-size: 11px;
+    font-weight: 700;
     letter-spacing: 3px;
+    margin-top: 3px;
 }
-.hero-copy {
-    padding: 40px 15px 30px 5px;
+
+/* Hero Section */
+.hero-wrapper {
+    background: linear-gradient(135deg, #092819 0%, #124B2C 55%, #1B6D3E 100%);
+    border-radius: 28px;
+    padding: 44px 48px;
+    margin-bottom: 30px;
+    box-shadow: 0 20px 50px rgba(9, 40, 25, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: white;
 }
-.eyebrow {
-    color: #277445;
-    font-size: 12px;
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 6px 16px;
+    border-radius: 30px;
+    color: #D3EDDA;
+    font-size: 11px;
     font-weight: 800;
-    letter-spacing: 3px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
 }
-.hero-title {
-    font-size: clamp(38px, 4.5vw, 62px);
-    font-weight: 800;
-    line-height: 1.04;
-    letter-spacing: -2px;
-    color: #153c29;
-    margin: 20px 0;
+
+.hero-heading {
+    font-family: 'Outfit', sans-serif;
+    color: #FFFFFF !important;
+    font-size: clamp(34px, 4.2vw, 54px);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -1px;
+    margin: 0 0 16px;
 }
-.hero-subtitle {
+
+.hero-subheading {
+    color: #E2F2E6;
     font-size: 18px;
     line-height: 1.6;
-    color: #617268;
-    margin-bottom: 22px;
+    max-width: 650px;
+    margin-bottom: 24px;
+    opacity: 0.95;
 }
-.hero-image {
-    width: 100%;
-    height: 365px;
-    object-fit: cover;
-    border-radius: 110px 22px 100px 22px;
-    box-shadow: 0 14px 35px #193e291a;
+
+.hero-stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 24px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
-.location-note {
-    color: #53705c;
-    font-size: 13px;
-    margin-top: 18px;
+
+.hero-stat-item {
+    font-size: 14px;
+    color: #E2F2E6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
-.section-title {
-    color: #183f2c;
-    font-size: 24px;
-    font-weight: 750;
-    margin: 12px 0 17px;
+
+.hero-stat-item b {
+    color: #FFFFFF;
+    font-size: 16px;
 }
-.feature {
-    background: #fff;
-    border: 1px solid #e0e8dc;
-    border-radius: 17px;
-    padding: 22px 20px;
-    min-height: 175px;
-    transition: 0.2s;
+
+/* Feature Cards */
+.section-heading {
+    font-family: 'Outfit', sans-serif;
+    color: #124027;
+    font-size: 26px;
+    font-weight: 800;
+    margin: 28px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
-.feature-icon {
-    background: #edf4e9;
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
+
+.feature-box {
+    background: #FFFFFF;
+    border: 1px solid #E1E9DD;
+    border-radius: 20px;
+    padding: 24px 20px;
+    box-shadow: 0 8px 24px rgba(18, 63, 42, 0.04);
+    transition: all 0.25s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    border-color: #23834B;
+    box-shadow: 0 14px 34px rgba(35, 131, 75, 0.12);
+}
+
+.feature-icon-wrapper {
+    background: linear-gradient(135deg, #EDF6EE 0%, #DFF0E1 100%);
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 27px;
-    margin-bottom: 14px;
+    font-size: 28px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(35, 131, 75, 0.15);
 }
-.feature h3 {
-    color: #1a5034;
+
+.feature-title {
+    font-family: 'Outfit', sans-serif;
+    color: #14492B;
     font-size: 18px;
+    font-weight: 800;
     margin: 0 0 8px;
 }
-.feature p {
-    color: #68776c;
-    font-size: 14px;
+
+.feature-desc {
+    color: #5D7264;
+    font-size: 13.5px;
     line-height: 1.5;
     margin: 0;
 }
-.notice {
-    background: #edf3e9;
-    border-radius: 12px;
-    padding: 14px;
-    text-align: center;
-    color: #49634e;
-    font-size: 13px;
-    margin-top: 18px;
-}
-.footer {
-    background: #173e2d;
-    color: #e8f0e7;
-    text-align: center;
-    padding: 17px;
-    border-radius: 12px;
-    margin-top: 18px;
-    font-size: 11px;
-    letter-spacing: 2px;
-}
+
+/* Styled Action Buttons */
 div.stButton > button {
-    background: #1d603a;
-    color: white;
-    border: 1px solid #1d603a;
-    border-radius: 28px;
+    background: linear-gradient(135deg, #1B653B 0%, #278C53 100%) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 12px;
     min-height: 48px;
+    font-size: 15px;
     font-weight: 700;
-    padding: 0 25px;
+    box-shadow: 0 6px 20px rgba(27, 101, 59, 0.26);
+    transition: all 0.2s ease;
 }
+
 div.stButton > button:hover {
-    background: #12452a;
-    border-color: #12452a;
-    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(27, 101, 59, 0.38);
 }
-@media (max-width: 700px) {
-    .block-container { padding: 1rem; }
-    .hero-copy { padding: 15px 0; }
-    .hero-image { height: 240px; border-radius: 35px 12px; }
-    .brand-name { font-size: 24px; }
+
+.footer-banner {
+    background: #103322;
+    color: #D3EDDA;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 35px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 600;
 }
 </style>
 """, unsafe_allow_html=True)
 
-# Brand header
+
+# --------------------------------------------------
+# BRAND HEADER
+# --------------------------------------------------
 st.markdown("""
 <div class="brand">
     <div class="brand-icon">🌿</div>
     <div>
         <div class="brand-name">AgriNirnay</div>
-        <div class="brand-tag">SMART CROP PLANNING</div>
+        <div class="brand-tag">SMART CROP PLANNING & FINANCIAL INTELLIGENCE</div>
     </div>
 </div>
 """, unsafe_allow_html=True)
 
-# Hero section
-left, right = st.columns([0.9, 1.1], gap="large")
 
-with left:
+# --------------------------------------------------
+# HERO BANNER
+# --------------------------------------------------
+h_left, h_right = st.columns([1.2, 0.8], gap="large")
+
+with h_left:
     st.markdown("""
-    <div class="hero-copy">
-        <div class="eyebrow">DATA-DRIVEN AGRICULTURE</div>
-        <div class="hero-title">
-            Make smarter<br>crop decisions.
+    <div class="hero-wrapper">
+        <div class="hero-eyebrow">🌱 &nbsp; DATA-DRIVEN AGRICULTURE FOR KARNATAKA</div>
+        <div class="hero-heading">
+            Make Smarter,<br>Higher-Yield Crop Decisions.
         </div>
-        <div class="hero-subtitle">
-            Soil, weather and market insights for your farm.
+        <div class="hero-subheading">
+            Scientific soil matching, live APMC mandi prices, weather forecasts, and revenue modeling designed specifically for farmers across Karnataka.
         </div>
-        <div class="location-note">
-            📍 Designed for farmers across Karnataka
-        </div>
+    """, unsafe_allow_html=True)
+
+    if st.button("🚀 Start Crop Planning Workflow →", key="hero_start_btn", use_container_width=True):
+        st.switch_page("pages/1_Farm_Details.py")
+with h_right:
+    st.markdown("""
+    <div style="padding-top: 10px;">
+        <img style="width:100%; height:370px; object-fit:cover; border-radius:28px; box-shadow: 0 16px 40px rgba(18,63,42,0.18);"
+             src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=85"
+             alt="Lush green Karnataka crop fields at sunrise">
     </div>
     """, unsafe_allow_html=True)
 
-    if st.button("Start Crop Planning  →", use_container_width=True):
-        st.switch_page("pages/1_Farm_Details.py")
 
-with right:
-    st.markdown("""
-    <img class="hero-image"
-    src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=85"
-    alt="Green agricultural fields at sunrise">
-    """, unsafe_allow_html=True)
-
-# Feature section
-st.markdown('<div class="section-title">Explore AgriNirnay</div>',
-            unsafe_allow_html=True)
+# --------------------------------------------------
+# FEATURE SECTION
+# --------------------------------------------------
+st.markdown('<div class="section-heading">🌟 Explore AgriNirnay Features</div>', unsafe_allow_html=True)
 
 features = [
-    ("🧪", "Soil Insights",
-     "Use soil reports to support crop planning."),
-    ("🌾", "Crop Recommendations",
-     "Explore crops suited to your farm details."),
-    ("🌦️", "Weather Updates",
-     "View weather information for your region."),
-    ("📊", "Cost & Revenue",
-     "Review estimated costs and crop revenue.")
+    ("🧪", "Soil Health",
+     "Lab test card OCR reader for pH & N-P-K nutrient status.",
+     "pages/2_Soil_Report.py", "Soil Insights"),
+    ("🌾", "AI Crop Match",
+     "Scientific single-crop recommendations tailored to your land.",
+     "pages/3_Crop_Recommendations.py", "Recommended Crop"),
+    ("🌦️", "Weather Forecast",
+     "Hyper-local weather conditions and 3-day rainfall updates.",
+     "pages/4_Weather.py", "Live Weather"),
+    ("📈", "APMC Mandis",
+     "Real-time benchmark modal prices across all 31 districts.",
+     "pages/5_Market_Prices.py", "Mandi Rates"),
+    ("💰", "ROI & Profit",
+     "Interactive cost breakdown, yield sliders, and revenue modeling.",
+     "pages/6_Cost_and_Revenue.py", "Plan Finances")
 ]
 
-cols = st.columns(4, gap="medium")
+cols = st.columns(5, gap="medium")
 
-for col, (icon, title, description) in zip(cols, features):
+for col, (icon, title, description, target_page, btn_text) in zip(cols, features):
     with col:
         st.markdown(f"""
-        <div class="feature">
-            <div class="feature-icon">{icon}</div>
-            <h3>{title}</h3>
-            <p>{description}</p>
+        <div class="feature-box">
+            <div>
+                <div class="feature-icon-wrapper">{icon}</div>
+                <div class="feature-title">{title}</div>
+                <p class="feature-desc">{description}</p>
+            </div>
         </div>
         """, unsafe_allow_html=True)
+        st.markdown("<div style='height:10px;'></div>", unsafe_allow_html=True)
+        if st.button(f"{btn_text} →", key=f"home_feat_{target_page}", use_container_width=True):
+            st.switch_page(target_page)
 
+
+# --------------------------------------------------
+# FOOTER
+# --------------------------------------------------
 st.markdown("""
-<div class="notice">
-    🌱 &nbsp; Estimates are indicative, not guaranteed.
-</div>
-<div class="footer">
-    AGRINIRNAY &nbsp; · &nbsp; SFIC 2026
+<div class="footer-banner">
+    AGRINIRNAY &nbsp; · &nbsp; DATA-DRIVEN AGRICULTURE &nbsp; · &nbsp; SFIC 2026
 </div>
 """, unsafe_allow_html=True)

@@ -118,6 +118,7 @@ def get_weather(city: str) -> dict:
                     "relative_humidity_2m,"
                     "precipitation,"
                     "rain,"
+                    "weather_code,"
                     "wind_speed_10m,"
                     "apparent_temperature"
                 ),
@@ -152,6 +153,29 @@ def get_weather(city: str) -> dict:
             daily.get("precipitation_probability_max") or [None]
         )
 
+        w_code = current.get("weather_code", 0)
+        condition_map = {
+            0: "☀️ Clear Sky",
+            1: "🌤️ Mainly Clear",
+            2: "⛅ Partly Cloudy",
+            3: "☁️ Overcast",
+            45: "🌫️ Foggy",
+            48: "🌫️ Depositing Rime Fog",
+            51: "🌦️ Light Drizzle",
+            53: "🌦️ Moderate Drizzle",
+            55: "🌧️ Dense Drizzle",
+            61: "🌧️ Slight Rain",
+            63: "🌧️ Moderate Rain",
+            65: "🌧️ Heavy Rain",
+            71: "🌨️ Slight Snow",
+            80: "🌦️ Light Rain Showers",
+            81: "🌧️ Moderate Showers",
+            82: "⛈️ Violent Rain Showers",
+            95: "⛈️ Thunderstorm",
+            96: "⛈️ Thunderstorm with Hail",
+        }
+        condition_text = condition_map.get(w_code, "🌤️ Partly Cloudy")
+
         return {
             "city": place.get("name", search_location),
             "admin1": place.get("admin1", ""),
@@ -165,6 +189,8 @@ def get_weather(city: str) -> dict:
             "humidity": current.get("relative_humidity_2m"),
             "precipitation": current.get("precipitation"),
             "rain": current.get("rain"),
+            "weather_code": w_code,
+            "condition": condition_text,
             "wind_speed": current.get("wind_speed_10m"),
             "time": current.get("time"),
             "daily": daily,

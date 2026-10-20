@@ -1,5 +1,0 @@
-streamlit # type: ignore
-pandas # type: ignore
-requests
-pypdf
-Pillow

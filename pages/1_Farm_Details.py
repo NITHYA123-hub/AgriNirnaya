@@ -1,4 +1,3 @@
-
 import streamlit as st
 
 st.set_page_config(
@@ -8,192 +7,161 @@ st.set_page_config(
 )
 
 # --------------------------------------------------
-# CUSTOM DESIGN — STREAMLIT THEME AWARE
+# ULTRA-PREMIUM DESIGN SYSTEM
 # --------------------------------------------------
-
 st.markdown("""
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-/* Use Streamlit's default theme background and text */
-.stApp,
-[data-testid="stAppViewContainer"],
-[data-testid="stMain"],
-[data-testid="stHeader"] {
-    background-color: transparent !important;
+html, body, [class*="css"] {
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Main content spacing */
 .block-container {
     max-width: 1150px;
     padding: 1.5rem 2rem 2.5rem;
 }
 
-/* Hero banner */
-.hero {
-    background: linear-gradient(120deg, #123F2A, #23834B);
-    padding: 30px;
-    border-radius: 22px;
-    margin-bottom: 22px;
-    box-shadow: 0 6px 20px rgba(18, 63, 42, 0.12);
+/* Hero Section */
+.hero-banner {
+    background: linear-gradient(135deg, #092819 0%, #124B2C 50%, #1A693D 100%);
+    border-radius: 24px;
+    padding: 36px 42px;
+    margin-bottom: 24px;
+    box-shadow: 0 16px 40px rgba(10, 42, 26, 0.22);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.hero h1 {
-    color: #FFFFFF !important;
-    font-size: 35px;
-    margin-bottom: 8px;
+.hero-banner::after {
+    content: "🚜";
+    position: absolute;
+    right: 25px;
+    bottom: -15px;
+    font-size: 130px;
+    opacity: 0.08;
+    pointer-events: none;
 }
 
-.hero p {
-    color: #E4F4E8 !important;
-    font-size: 16px;
-}
-
-.hero .eyebrow {
-    color: #D3EDDA !important;
-    font-size: 12px;
-    letter-spacing: 2px;
-    font-weight: 600;
-}
-
-/* Progress indicator */
-.step,
-.step-active {
-    border-radius: 14px;
-    padding: 14px 8px;
-    text-align: center;
-    min-height: 70px;
-    line-height: 1.8;
-    font-size: 15px;
-}
-
-.step {
-    background-color: var(--secondary-background-color);
-    border: 1px solid rgba(128, 128, 128, 0.35);
-    color: var(--text-color) !important;
-}
-
-.step small {
-    color: var(--text-color) !important;
-    opacity: 0.8;
-    font-size: 12px;
-}
-
-.step-active {
-    background-color: #DDF2E2 !important;
-    border: 2px solid #23834B;
-    color: #124B2A !important;
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: #D3EDDA;
+    font-size: 11px;
     font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
 }
 
-.step-active small {
-    color: #23633A !important;
-    opacity: 1;
-}
-
-/* Form card — follows the selected Streamlit theme */
-[data-testid="stForm"] {
-    background-color: var(--secondary-background-color);
-    border: 1px solid rgba(128, 128, 128, 0.3);
-    border-radius: 18px;
-    padding: 24px;
-    box-shadow: 0 5px 22px rgba(25, 65, 38, 0.05);
-}
-
-/* Theme-aware headings and labels */
-h1, h2, h3, h4,
-[data-testid="stWidgetLabel"] p,
-[data-testid="stRadio"] label,
-[data-testid="stRadio"] p {
-    color: var(--text-color);
-}
-
-/* Select boxes */
-[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
-    background-color: var(--secondary-background-color);
-    border-color: rgba(128, 128, 128, 0.4);
-}
-
-[data-testid="stSelectbox"] div[data-baseweb="select"] span {
-    color: var(--text-color);
-}
-
-/* Number input */
-[data-testid="stNumberInput"] input {
-    background-color: var(--secondary-background-color);
-    color: var(--text-color);
-    border-color: rgba(128, 128, 128, 0.4);
-}
-
-/* Tip box */
-.tip {
-    background-color: rgba(46, 139, 87, 0.13);
-    color: var(--text-color);
-    border-left: 4px solid #329454;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 12px 0;
-    line-height: 1.7;
-}
-
-.tip b {
-    color: var(--text-color);
-}
-
-/* Buttons */
-div.stButton > button,
-div.stFormSubmitButton > button {
-    background-color: #207744 !important;
+.hero-title {
+    font-family: 'Outfit', sans-serif;
     color: #FFFFFF !important;
-    border: 1px solid #207744 !important;
-    border-radius: 10px;
-    min-height: 48px;
-    font-weight: 600;
+    font-size: clamp(28px, 3.2vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin: 0 0 10px;
+}
+
+.hero-sub {
+    color: #E2F2E6;
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 750px;
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* Progress Stepper */
+.stepper-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.step-card {
+    background: var(--secondary-background-color);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 16px;
+    padding: 14px 18px;
+    text-align: center;
     transition: 0.2s ease;
 }
 
-div.stButton > button p,
-div.stFormSubmitButton > button p {
+.step-card-active {
+    background: linear-gradient(135deg, rgba(35, 131, 75, 0.15), rgba(18, 75, 44, 0.08));
+    border: 2px solid #23834B;
+    border-radius: 16px;
+    padding: 14px 18px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(35, 131, 75, 0.15);
+}
+
+.step-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: #23834B;
+    letter-spacing: 1px;
+}
+
+.step-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-top: 2px;
+}
+
+/* Form card */
+[data-testid="stForm"] {
+    background-color: var(--secondary-background-color);
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(25, 65, 38, 0.05);
+}
+
+/* Tip box */
+.tip-callout {
+    background: rgba(46, 139, 87, 0.12);
+    border-left: 4px solid #23834B;
+    padding: 16px 20px;
+    border-radius: 12px;
+    color: var(--text-color);
+    margin: 16px 0;
+    line-height: 1.6;
+}
+
+/* Styled Action Buttons */
+div.stButton > button,
+div.stFormSubmitButton > button {
+    background: linear-gradient(135deg, #1B653B 0%, #278C53 100%) !important;
     color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 12px;
+    min-height: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(27, 101, 59, 0.26);
+    transition: all 0.2s ease;
 }
 
 div.stButton > button:hover,
 div.stFormSubmitButton > button:hover {
-    background-color: #155B32 !important;
-    border-color: #155B32 !important;
-}
-
-/* Saved details and footer */
-[data-testid="stCaptionContainer"] {
-    color: var(--text-color);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(27, 101, 59, 0.38);
 }
 
 footer {
     visibility: hidden;
-}
-
-/* Mobile layout */
-@media (max-width: 640px) {
-    .block-container {
-        padding: 1rem;
-    }
-
-    .hero {
-        padding: 22px;
-    }
-
-    .hero h1 {
-        font-size: 27px;
-    }
-
-    .step,
-    .step-active {
-        padding: 10px 4px;
-        font-size: 12px;
-    }
-
-    [data-testid="stForm"] {
-        padding: 16px;
-    }
 }
 </style>
 """, unsafe_allow_html=True)
@@ -202,13 +170,11 @@ footer {
 # --------------------------------------------------
 # HERO BANNER
 # --------------------------------------------------
-
 st.markdown("""
-<div class="hero">
-    <div style="font-size:38px;">🌱</div>
-    <div class="eyebrow">AGRINIRNAY · SMART CROP PLANNING</div>
-    <h1>Tell us about your farm</h1>
-    <p>Farm details in. Smarter crop planning starts here.</p>
+<div class="hero-banner">
+    <div class="hero-eyebrow">🚜 &nbsp; STEP 1 · FARM BASELINE PARAMETERS</div>
+    <div class="hero-title">Tell Us About Your Farm</div>
+    <div class="hero-sub">Enter your land size, agro-climatic district, and seasonal water availability to discover tailored crop recommendations.</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -216,90 +182,54 @@ st.markdown("""
 # --------------------------------------------------
 # PROGRESS INDICATOR
 # --------------------------------------------------
-
-c1, c2, c3 = st.columns(3)
-
-with c1:
-    st.markdown("""
-    <div class="step-active">
-        ① Farm Details<br>
-        <small>Current step</small>
+st.markdown("""
+<div class="stepper-container">
+    <div class="step-card-active">
+        <div class="step-num" style="color:#124B2A;">STEP 1 · ACTIVE</div>
+        <div class="step-title" style="color:#124B2A;">① Farm Details</div>
     </div>
-    """, unsafe_allow_html=True)
-
-with c2:
-    st.markdown("""
-    <div class="step">
-        ② Soil Report<br>
-        <small>Optional upload</small>
+    <div class="step-card">
+        <div class="step-num">STEP 2</div>
+        <div class="step-title">② Soil Report</div>
     </div>
-    """, unsafe_allow_html=True)
-
-with c3:
-    st.markdown("""
-    <div class="step">
-        ③ Crop Options<br>
-        <small>Explore matches</small>
+    <div class="step-card">
+        <div class="step-num">STEP 3</div>
+        <div class="step-title">③ Recommended Crop</div>
     </div>
-    """, unsafe_allow_html=True)
+</div>
+""", unsafe_allow_html=True)
 
 
 # --------------------------------------------------
 # FARM INFORMATION FORM
 # --------------------------------------------------
-
-st.markdown("## 🚜 Farm information")
+st.markdown("## 🚜 Farm Information Form")
 
 with st.form("farm_details_form"):
 
-    st.markdown("### 📍 Farm location")
+    st.markdown("### 📍 Location & Geography")
 
     district = st.selectbox(
-        "District",
+        "Karnataka District",
         [
-            "Bagalkot",
-            "Ballari",
-            "Belagavi",
-            "Bengaluru Rural",
-            "Bengaluru Urban",
-            "Bidar",
-            "Chamarajanagar",
-            "Chikkaballapur",
-            "Chikkamagaluru",
-            "Chitradurga",
-            "Dakshina Kannada",
-            "Davanagere",
-            "Dharwad",
-            "Gadag",
-            "Hassan",
-            "Haveri",
-            "Kalaburagi",
-            "Kodagu",
-            "Kolar",
-            "Koppal",
-            "Mandya",
-            "Mysuru",
-            "Raichur",
-            "Ramanagara",
-            "Shivamogga",
-            "Tumakuru",
-            "Udupi",
-            "Uttara Kannada",
-            "Vijayanagara",
-            "Vijayapura",
-            "Yadgir"
+            "Bagalkot", "Ballari", "Belagavi", "Bengaluru Rural", "Bengaluru Urban",
+            "Bidar", "Chamarajanagar", "Chikkaballapur", "Chikkamagaluru", "Chitradurga",
+            "Dakshina Kannada", "Davanagere", "Dharwad", "Gadag", "Hassan",
+            "Haveri", "Kalaburagi", "Kodagu", "Kolar", "Koppal",
+            "Mandya", "Mysuru", "Raichur", "Ramanagara", "Shivamogga",
+            "Tumakuru", "Udupi", "Uttara Kannada", "Vijayanagara", "Vijayapura", "Yadgir"
         ],
-        index=3,
+        index=20,  # Mandya default
         key="farm_district_input"
     )
 
-    st.markdown("### 🌾 Land and season")
+    st.markdown("### 🌾 Farm Size & Sowing Season")
 
     col1, col2 = st.columns(2)
 
     with col1:
         land_area = st.number_input(
-            "Farm size (acres)",
+            "Farm Land Size (Acres)",
             min_value=0.1,
             max_value=10000.0,
             value=1.0,
@@ -309,29 +239,31 @@ with st.form("farm_details_form"):
 
     with col2:
         season = st.selectbox(
-            "Growing season",
+            "Target Growing Season",
             ["Kharif", "Rabi", "Summer"],
+            index=0,
             key="farm_season_input"
         )
 
-    st.markdown("### 💧 Water availability")
+    st.markdown("### 💧 Irrigation & Water Supply")
 
     water_availability = st.radio(
-        "Available irrigation water",
+        "Available Irrigation Water Level",
         ["Low", "Moderate", "High"],
+        index=1,
         horizontal=True,
         key="farm_water_input"
     )
 
     st.markdown("""
-    <div class="tip">
-        💡 <b>Have a soil report?</b><br>
-        Upload it on the next page. You can also continue without one.
+    <div class="tip-callout">
+        💡 <b>Have a soil laboratory report?</b><br>
+        You can upload a photo or PDF of your Soil Health Card on the next step. You can also proceed with standard regional soil values.
     </div>
     """, unsafe_allow_html=True)
 
     submitted = st.form_submit_button(
-        "Save Farm Details & Continue →",
+        "Save Farm Details & Continue to Soil Report →",
         use_container_width=True
     )
 
@@ -339,7 +271,6 @@ with st.form("farm_details_form"):
 # --------------------------------------------------
 # SAVE DETAILS AND NAVIGATE
 # --------------------------------------------------
-
 if submitted:
     st.session_state["farm_details"] = {
         "district": district,
@@ -348,39 +279,22 @@ if submitted:
         "water_availability": water_availability
     }
 
-    # Clear the previous upload when starting a new submission.
+    # Clear previous upload when starting new submission
     st.session_state.pop("soil_report_file", None)
-
     st.switch_page("pages/2_Soil_Report.py")
 
 
-# --------------------------------------------------
-# SHOW SAVED FARM DETAILS
-# --------------------------------------------------
-
 if "farm_details" in st.session_state:
     details = st.session_state["farm_details"]
-
     st.caption(
-        f"Saved farm: {details['district']} · "
-        f"{details['land_area']} acres · "
-        f"{details['season']} · "
-        f"Water: {details['water_availability']}"
+        f"✓ Saved farm profile: **{details['district']}** · "
+        f"**{details['land_area']} acres** · "
+        f"**{details['season']}** season · "
+        f"Water: **{details['water_availability']}**"
     )
 
-
-# --------------------------------------------------
-# FOOTER
-# --------------------------------------------------
-
 st.markdown("""
-<div style="
-    text-align:center;
-    opacity:0.75;
-    padding:22px 0;
-    font-size:13px;
-    letter-spacing:1px;
-">
-    AGRINIRNAY · DATA-DRIVEN AGRICULTURE
+<div style="text-align:center;opacity:0.75;padding:26px 0;font-size:13px;letter-spacing:1px;">
+    AGRINIRNAY · SMART CROP DECISIONS FOR KARNATAKA
 </div>
 """, unsafe_allow_html=True)

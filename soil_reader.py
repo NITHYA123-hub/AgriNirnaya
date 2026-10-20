@@ -10,7 +10,13 @@ from io import BytesIO
 
 from PIL import Image, ImageOps
 from pypdf import PdfReader
-import pytesseract # type: ignore
+
+try:
+    import pytesseract  # type: ignore
+    HAS_PYTESSERACT = True
+except ImportError:
+    pytesseract = None
+    HAS_PYTESSERACT = False
 
 
 VALUE_KEYS = ("pH", "nitrogen", "phosphorus", "potassium")
@@ -34,12 +40,21 @@ def _normalise_number(raw):
 
 def _read_image_ocr(image):
     """OCR an image with basic preprocessing."""
-    image = ImageOps.exif_transpose(image).convert("RGB")
-    # Enlarge small scans to improve OCR results.
-    if image.width < 1400:
-        scale = 1400 / image.width
-        image = image.resize((1400, int(image.height * scale)))
-    return pytesseract.image_to_string(image, config="--psm 6")
+    if not HAS_PYTESSERACT or pytesseract is None:
+        return (
+            "IMAGE_OCR_UNAVAILABLE: Optical Character Recognition for images requires 'pytesseract'. "
+            "Please enter your soil parameters manually below."
+        )
+
+    try:
+        image = ImageOps.exif_transpose(image).convert("RGB")
+        # Enlarge small scans to improve OCR results.
+        if image.width < 1400:
+            scale = 1400 / image.width
+            image = image.resize((1400, int(image.height * scale)))
+        return pytesseract.image_to_string(image, config="--psm 6")
+    except Exception as exc:
+        return f"OCR_PROCESSING_FAILED: Could not read image text ({exc}). Enter values manually."
 
 
 def extract_text(uploaded_file):
