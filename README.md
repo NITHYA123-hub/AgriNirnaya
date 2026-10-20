@@ -8,7 +8,7 @@
 [![Institution](https://img.shields.io/badge/Institution-S--VYASA%20University-orange.svg)]()
 
 > **🚀 Live Web Deployment:** https://agrinirnaya.streamlit.app/ 
-> **📄 Comprehensive Project Report:** [PROJECT_REPORT.md](PROJECT_REPORT.md)
+> **📄 Comprehensive Project Report:** project_Report.txt
 
 ---
 
