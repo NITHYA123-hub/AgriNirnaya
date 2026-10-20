@@ -221,7 +221,7 @@ For full academic, architectural, mathematical, and econometric details, please 
 
 ---
 
-## 👥 Acknowledgments & Hackathon Context
+## 👥 Acknowledgments
 
 Developed for **SFIC 2026** (Smart Farming Innovation Challenge) under the national theme:  
 🌾 **Samriddh Annadata, Samriddh Bharat** (Prosperous Farmer, Prosperous India)
